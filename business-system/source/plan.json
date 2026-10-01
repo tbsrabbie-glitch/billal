@@ -1,0 +1,70 @@
+[
+  {"week": "Week 0", "dates": "1–4 Oct", "month": "October: See the money", "theme": "Kick-off", "tasks": [
+    ["Learn", "Read Part 1 of the crash course (the money language: revenue, costs, profit, cash).", "You can explain the difference between profit and cash in your own words."],
+    ["Money", "Choose ONE bank account for the business only. Open a new one if needed.", "Every client payment from now on goes into that account."],
+    ["Money", "Download bank statements from 1 April 2025 to today (the 2025/26 and 2026/27 tax years).", "PDF or Excel statements saved in one folder."],
+    ["Tool", "Fill in the Setup sheet: business name, opening balances, categories, accounts.", "Setup sheet complete; no yellow cells left empty that apply to you."]
+  ]},
+  {"week": "Week 1", "dates": "5–11 Oct", "month": "October: See the money", "theme": "Rebuild the past (part 1)", "tasks": [
+    ["Tool", "Enter every transaction for April–June 2026 from the bank statements into the Transactions sheet.", "Closing balance on the Cash Flow sheet for June matches the bank statement."],
+    ["Learn", "Read Part 2: how bookkeeping works (categories, the cash book, receipts).", "You know which category every common expense goes into."],
+    ["Money", "Start a receipt habit: photograph every receipt into one phone album or folder named by month.", "This week's receipts are all saved."]
+  ]},
+  {"week": "Week 2", "dates": "12–18 Oct", "month": "October: See the money", "theme": "Rebuild the past (part 2)", "tasks": [
+    ["Tool", "Enter July–September 2026 transactions.", "September closing balance matches the bank."],
+    ["Tool", "List every client on the Clients sheet and every unpaid invoice on the Invoices sheet.", "You know exactly who owes you money and how much."],
+    ["People", "Shortlist 3 accountants (CA Sri Lanka or AAT Sri Lanka members, or a tax practitioner) and book short meetings.", "Meetings booked."]
+  ]},
+  {"week": "Week 3", "dates": "19–25 Oct", "month": "October: See the money", "theme": "Tax and legal health check", "tasks": [
+    ["Legal", "Get a TIN from the IRD e-Services portal if you don't already have one. It becomes compulsory for key transactions from 1 November 2026.", "TIN certificate saved."],
+    ["Legal", "Check your business registration: sole proprietor or partnership (Divisional Secretariat) or company (Registrar of Companies, eROC).", "You have the registration certificate, or know what to register."],
+    ["People", "Hire an accountant. Ask about the 2025/26 return (due 30 Nov), the 15 Nov instalment, WHT certificates, VAT and SSCL.", "Accountant engaged; tax deadlines confirmed in writing."],
+    ["Money", "Start the 10-minute daily routine (enter yesterday's transactions, file receipts).", "Done at least 5 days this week."]
+  ]},
+  {"week": "Week 4", "dates": "26 Oct–1 Nov", "month": "October: See the money", "theme": "First month-end close", "tasks": [
+    ["Tool", "Close October: enter everything, match the bank, update invoice payments.", "October closing cash on the Cash Flow sheet matches the bank to the rupee."],
+    ["Learn", "Read the Monthly P&L for April–October and write down 5 things you notice.", "5 observations written (best month, biggest cost, margin trend…)."],
+    ["Money", "Set a fixed monthly owner salary and a tax reserve %. Open a separate savings account for tax.", "Owner pay and tax % entered on Setup; first transfer to tax savings made."]
+  ]},
+  {"week": "Week 5", "dates": "2–8 Nov", "month": "November: Understand and plan", "theme": "Know your services", "tasks": [
+    ["Tool", "Fill in the Service Pricing sheet for every service you sell.", "You know the real profit and effective hourly rate of each service."],
+    ["Strategy", "Check client concentration: what % of revenue comes from your biggest client and your top 3?", "Risk written down; if one client is above 30%, you have a plan to win more."],
+    ["Learn", "Read Part 4: pricing and unit economics.", "You can say which service to push and which to fix or drop."]
+  ]},
+  {"week": "Week 6", "dates": "9–15 Nov", "month": "November: Understand and plan", "theme": "Know your customers", "tasks": [
+    ["Customers", "Interview your 5 best clients using the questions in Part 5.", "Notes from 5 conversations, with their exact words."],
+    ["Strategy", "Write your Ideal Client Profile (who they are, what problem they have, why they choose you).", "One paragraph you could give to a salesperson."],
+    ["Legal", "Pay the 2nd income tax instalment for 2026/27 by 15 November (with your accountant).", "Payment made and receipt saved; recorded as Income Tax Paid."]
+  ]},
+  {"week": "Week 7", "dates": "16–22 Nov", "month": "November: Understand and plan", "theme": "The business plan", "tasks": [
+    ["Strategy", "Write the One-Page Business Plan (Part 5 template).", "One page, finished, read aloud to a partner or friend."],
+    ["Strategy", "Set 3 measurable goals for January–March 2027.", "Each goal has a number and a date."]
+  ]},
+  {"week": "Week 8", "dates": "23–29 Nov", "month": "November: Understand and plan", "theme": "Forecast and budget", "tasks": [
+    ["Tool", "Fill in the Forecast sheet for October 2026–March 2027 and set a monthly budget for fixed costs.", "Forecast done; October actual vs forecast reviewed."],
+    ["Legal", "Make sure the 2025/26 income tax return is filed by 30 November.", "Filing confirmation saved."],
+    ["Tool", "Close November books.", "November cash matches the bank; P&L reviewed."]
+  ]},
+  {"week": "Week 9", "dates": "30 Nov–6 Dec", "month": "December: Grow and organise", "theme": "Brand and positioning", "tasks": [
+    ["Marketing", "Write your positioning statement and one-line pitch (Part 6 template).", "You can say what you do, for whom, and why you're different in one sentence."],
+    ["Marketing", "Fix the brand basics: consistent name and logo, Google Business Profile, LinkedIn/Facebook page, WhatsApp Business profile.", "All profiles match and show how to contact you."]
+  ]},
+  {"week": "Week 10", "dates": "7–13 Dec", "month": "December: Grow and organise", "theme": "Marketing and sales system", "tasks": [
+    ["Marketing", "Choose 1–2 marketing channels and plan 4 weeks of activity.", "A dated content or outreach plan for January."],
+    ["Sales", "Start the Sales Pipeline sheet: every enquiry and lead goes in it.", "All current leads entered with a next action and date."],
+    ["Sales", "Ask your 5 happiest clients for a referral or testimonial.", "At least 2 testimonials or referrals received."]
+  ]},
+  {"week": "Week 11", "dates": "14–20 Dec", "month": "December: Grow and organise", "theme": "Operations and your team", "tasks": [
+    ["Operations", "Write SOPs (step-by-step checklists) for the 3 tasks you repeat most.", "3 SOPs that someone else could follow."],
+    ["People", "Draw the org chart: every role, who does it now, and what to hire or outsource next.", "Hiring/outsourcing list with priorities and budget."]
+  ]},
+  {"week": "Week 12", "dates": "21–27 Dec", "month": "December: Grow and organise", "theme": "Rhythm and dashboard", "tasks": [
+    ["Operations", "Fix your management rhythm: daily 10 minutes, weekly 30-minute review, monthly close, quarterly plan. Put them in your calendar.", "Recurring calendar events created."],
+    ["Tool", "Review the Dashboard: revenue, margins, cash, overdue invoices, runway.", "You can explain every number on it."]
+  ]},
+  {"week": "Week 13", "dates": "28–31 Dec", "month": "December: Grow and organise", "theme": "Quarter close and Q1 2027 plan", "tasks": [
+    ["Tool", "Close December and review the full quarter (October–December).", "Quarter review written: what worked, what didn't, numbers vs forecast."],
+    ["Strategy", "Write the Q1 2027 plan: 3 priorities, goals, budget, who does what.", "Plan agreed with partners/team."],
+    ["Legal", "Estimate the 3rd tax instalment (due 15 Feb 2027) with your accountant.", "Amount known and saved in the tax account."]
+  ]}
+]
