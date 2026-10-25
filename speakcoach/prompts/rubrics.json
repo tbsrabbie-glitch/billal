@@ -1,0 +1,31 @@
+{
+  "_comment": "Rubric per speech type. 'weights' must add up to 100; they're re-balanced automatically when there's no Q&A. 'type_specific' names the extra content sub-score. 'focus' is inserted into the evaluator prompts.",
+  "client": {
+    "label": "Client presentation",
+    "weights": { "content_structure": 35, "delivery_voice": 25, "body_language": 20, "qa_handling": 20 },
+    "type_specific": "Persuasiveness & clear recommendation",
+    "focus": "Weight audience fit and persuasiveness highest. A client presentation must make a clear recommendation tied to the client's situation, quantify impact (rupees, %, deadlines) where possible, anticipate the client's concerns, and end with a specific next step or decision. Jargon should be explained for the stated audience.",
+    "qa_focus": "A good client answer gives the bottom line first, then the reason, then a number or example, and never sounds defensive. It's fine to say 'I'll confirm that and come back to you' rather than guess."
+  },
+  "interview": {
+    "label": "Interview / Q&A",
+    "weights": { "content_structure": 25, "delivery_voice": 25, "body_language": 15, "qa_handling": 35 },
+    "type_specific": "Relevance & concrete examples (STAR)",
+    "focus": "Weight directness, relevance and concrete evidence of skills highest. Strong answers use a STAR-like shape (situation, task, action, result), quantify results, and link back to the role. Rambling or generic claims without examples should be penalised.",
+    "qa_focus": "Interview answers should answer in the first sentence, then support it with one specific example and a result. Penalise answers that drift off the question."
+  },
+  "exam": {
+    "label": "Exam or viva answer",
+    "weights": { "content_structure": 45, "delivery_voice": 20, "body_language": 10, "qa_handling": 25 },
+    "type_specific": "Technical accuracy & precision",
+    "focus": "Weight accuracy and structure highest. A strong exam/viva answer defines key terms precisely, states the rule or principle, applies it to an example, notes exceptions, and concludes. Flag possible technical inaccuracies, but mark them as 'possible — verify' because laws and standards (especially Sri Lankan tax law) change often.",
+    "qa_focus": "Examiner follow-ups test depth: answers should be precise, cite the relevant rule/section/standard where possible, and admit uncertainty honestly rather than bluff."
+  },
+  "general": {
+    "label": "General public speaking",
+    "weights": { "content_structure": 30, "delivery_voice": 35, "body_language": 25, "qa_handling": 10 },
+    "type_specific": "Engagement & storytelling",
+    "focus": "Weight delivery and engagement highest. Look for a strong hook, one clear message, a story or vivid example, vocal energy and variety, and a memorable close.",
+    "qa_focus": "Answers should be brief, friendly and on-point, ideally tying back to the main message."
+  }
+}
