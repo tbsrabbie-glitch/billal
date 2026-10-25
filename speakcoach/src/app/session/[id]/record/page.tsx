@@ -6,6 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { RecordStudio, type StudioResult } from "@/components/record/RecordStudio";
 import { getSession, requestPersistentStorage, saveMedia, updateSession } from "@/lib/db";
 import { formatClock } from "@/lib/recorder";
+import { computeVisionMetrics, emptyVision } from "@/lib/vision/body-metrics";
 import { speechTypeLabel, type SessionRecord } from "@/lib/types";
 
 export default function RecordPage() {
@@ -20,11 +21,23 @@ export default function RecordPage() {
   }, [id]);
 
   const finished = useCallback(
-    async ({ recording, info }: StudioResult) => {
+    async ({ recording, info, vision }: StudioResult) => {
       void requestPersistentStorage();
       await saveMedia(id, "main-video", recording.video);
       if (recording.audio) await saveMedia(id, "main-audio", recording.audio);
-      await updateSession(id, { status: "recorded", recording: info });
+      await saveMedia(id, "frames", new Blob([JSON.stringify(vision?.frames ?? [])], { type: "application/json" }));
+      const visionMetrics = vision ? computeVisionMetrics(vision, info.durationSec) : emptyVision("Body-language tracking didn't start.");
+      // A new take invalidates everything derived from the previous one.
+      await updateSession(id, {
+        status: "recorded",
+        recording: info,
+        vision: visionMetrics,
+        transcript: undefined,
+        metrics: undefined,
+        voice: undefined,
+        qa: undefined,
+        report: undefined,
+      });
       router.push(`/session/${id}/review`);
     },
     [id, router],

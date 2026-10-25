@@ -4,12 +4,12 @@ import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { deleteSession } from "@/lib/db";
 
-export function DeleteSessionButton({ id, onDeleted }: { id: string; onDeleted: () => void }) {
+export function DeleteSessionButton({ id, onDeleted, compact }: { id: string; onDeleted: () => void; compact?: boolean }) {
   const [busy, setBusy] = useState(false);
   return (
     <Button
       variant="ghost"
-      className="text-red-600"
+      className={compact ? "!p-0 text-xs text-red-600 hover:!bg-transparent hover:underline" : "text-red-600"}
       disabled={busy}
       onClick={async () => {
         if (!window.confirm("Delete this session? The video, transcript and report will be permanently removed from this device.")) return;

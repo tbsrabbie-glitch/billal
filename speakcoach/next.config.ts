@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Prompt templates are read from disk at runtime; make sure they ship with the API routes.
+  outputFileTracingIncludes: {
+    "/api/**": ["./prompts/**"],
+  },
   turbopack: {
     rules: {
       "*.css": {

@@ -1,0 +1,12 @@
+{
+  "_comment": "Terms Deepgram is primed to recognise (keyterm prompting). Add client names, acronyms and jargon you use often. Keep under ~80 entries.",
+  "keyterms": [
+    "Inland Revenue Department", "IRD", "RAMIS", "Inland Revenue Act", "SSCL", "Social Security Contribution Levy",
+    "APIT", "Advance Personal Income Tax", "WHT", "withholding tax", "AIT", "VAT", "Value Added Tax", "SVAT",
+    "TIN", "corporate income tax", "capital allowances", "tax holiday", "BOI", "Board of Investment",
+    "Customs", "Excise", "stamp duty", "ESC", "transfer pricing", "double tax treaty", "DTA", "permanent establishment",
+    "assessable income", "taxable income", "self-assessment", "year of assessment", "notice of assessment",
+    "Tax Appeals Commission", "CA Sri Lanka", "CIMA", "ACCA", "Big Four", "Colombo", "Sri Lanka",
+    "rupees", "lakhs", "crores", "LKR", "EPF", "ETF", "IFRS", "SLFRS", "LKAS"
+  ]
+}

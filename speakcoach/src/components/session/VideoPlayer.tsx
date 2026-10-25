@@ -10,7 +10,7 @@ export interface VideoPlayerHandle {
  * Plays a recorded Blob. Works around Chrome's MediaRecorder webm files, which have no
  * duration in their header and so can't be seeked until the duration is forced.
  */
-export const VideoPlayer = forwardRef<VideoPlayerHandle, { blob: Blob }>(function VideoPlayer({ blob }, ref) {
+export const VideoPlayer = forwardRef<VideoPlayerHandle, { blob: Blob; className?: string }>(function VideoPlayer({ blob, className }, ref) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [url, setUrl] = useState<string | null>(null);
 
@@ -50,7 +50,7 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, { blob: Blob }>(functio
       playsInline
       preload="metadata"
       onLoadedMetadata={onLoadedMetadata}
-      className="mx-auto max-h-[70vh] w-full rounded-2xl bg-black"
+      className={`mx-auto w-full rounded-2xl bg-black ${className ?? "max-h-[70vh]"}`}
     />
   );
 });

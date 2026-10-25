@@ -1,0 +1,10 @@
+{
+  "_comment": "Filler and hedge words counted in code. 'contextual' words only count when used as fillers (see src/lib/metrics/fillers.ts).",
+  "always": ["um", "umm", "uh", "uhh", "uh-huh", "er", "erm", "ah", "hmm", "mm", "basically", "actually", "literally"],
+  "phrases": ["you know", "i mean", "you see"],
+  "contextual": ["like", "so", "right", "okay", "ok"],
+  "hedges": [
+    "maybe", "i think", "sort of", "kind of", "i guess", "probably", "perhaps", "i feel like",
+    "hopefully", "i'm not sure", "i suppose", "more or less", "somewhat", "might be", "could be", "a little bit"
+  ]
+}

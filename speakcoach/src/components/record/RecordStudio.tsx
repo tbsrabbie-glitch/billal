@@ -17,6 +17,7 @@ import {
   type RecordingResult,
 } from "@/lib/recorder";
 import type { NotesToggle, RecordingInfo } from "@/lib/types";
+import { VisionTracker, type VisionCapture } from "@/lib/vision/tracker";
 
 type Phase = "idle" | "starting" | "preview" | "countdown" | "recording" | "saving" | "save-failed";
 
@@ -25,6 +26,7 @@ const WARN_AT_SEC = 30;
 export interface StudioResult {
   recording: RecordingResult;
   info: RecordingInfo;
+  vision: VisionCapture | null;
 }
 
 export function RecordStudio({
@@ -49,6 +51,7 @@ export function RecordStudio({
   const stoppingRef = useRef(false);
   const pendingRef = useRef<StudioResult | null>(null);
   const onFinishedRef = useRef(onFinished);
+  const trackerRef = useRef<VisionTracker | null>(null);
 
   const [phase, setPhase] = useState<Phase>("idle");
   const [error, setError] = useState<MediaError | null>(null);
@@ -73,8 +76,17 @@ export function RecordStudio({
     onFinishedRef.current = onFinished;
   }, [onFinished]);
 
+  // Body-language sampling: loads models during the preview, calibrates during the countdown.
+  useEffect(() => {
+    if (phase !== "preview" || trackerRef.current || !videoRef.current) return;
+    const tracker = new VisionTracker(videoRef.current, Math.max(10, durationSec / 8));
+    trackerRef.current = tracker;
+    void tracker.start();
+  }, [phase, durationSec]);
+
   useEffect(() => {
     return () => {
+      trackerRef.current?.stop();
       stopStream(streamRef.current);
       releaseWakeRef.current();
     };
@@ -160,6 +172,7 @@ export function RecordStudio({
       togglesRef.current = notesOpenRef.current ? [{ t: 0, open: true }] : [];
       stoppingRef.current = false;
       rec.start();
+      trackerRef.current?.markRecordingStart();
       startedAtRef.current = performance.now();
       setElapsed(0);
       setPhase("recording");
@@ -178,6 +191,8 @@ export function RecordStudio({
     setPhase("saving");
     releaseWakeRef.current();
 
+    const vision = trackerRef.current?.stop() ?? null;
+    trackerRef.current = null;
     let recording: RecordingResult;
     try {
       recording = await rec.stop();
@@ -206,6 +221,7 @@ export function RecordStudio({
         notesToggles: toggles,
         recordedAt: Date.now(),
       },
+      vision,
     };
     pendingRef.current = result;
     await save(result);
@@ -311,6 +327,7 @@ export function RecordStudio({
 
         {phase === "countdown" && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+            <p className="absolute top-6 inset-x-0 text-center text-sm font-medium text-white">Look straight at the camera lens</p>
             <span key={count} className="animate-ping text-8xl font-bold text-white [animation-iteration-count:1]">
               {count}
             </span>

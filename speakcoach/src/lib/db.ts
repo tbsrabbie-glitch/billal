@@ -87,6 +87,46 @@ export async function deleteSession(id: string): Promise<void> {
   });
 }
 
+interface BackupFile {
+  app: "speakcoach";
+  version: 1;
+  exportedAt: number;
+  sessions: SessionRecord[];
+  frames: Record<string, string>;
+}
+
+/** Everything except videos/audio (which can be large) as one JSON file. */
+export async function exportData(): Promise<Blob> {
+  const d = db();
+  const sessions = await d.sessions.toArray();
+  const frames: Record<string, string> = {};
+  for (const m of await d.media.where("id").anyOf(sessions.map((s) => `${s.id}:frames`)).toArray()) {
+    frames[m.sessionId] = await m.blob.text();
+  }
+  const file: BackupFile = { app: "speakcoach", version: 1, exportedAt: Date.now(), sessions, frames };
+  return new Blob([JSON.stringify(file)], { type: "application/json" });
+}
+
+/** Adds sessions from a backup; sessions already on this device are left alone. Returns how many were added. */
+export async function importData(file: File): Promise<number> {
+  const data = JSON.parse(await file.text()) as Partial<BackupFile>;
+  if (data.app !== "speakcoach" || !Array.isArray(data.sessions)) throw new Error("That isn't a SpeakCoach backup file.");
+  const d = db();
+  let added = 0;
+  await d.transaction("rw", d.sessions, d.media, async () => {
+    for (const s of data.sessions!) {
+      if (!s?.id || (await d.sessions.get(s.id))) continue;
+      await d.sessions.add(s);
+      const frames = data.frames?.[s.id];
+      if (frames) {
+        await d.media.put({ id: `${s.id}:frames`, sessionId: s.id, kind: "frames", blob: new Blob([frames], { type: "application/json" }), mimeType: "application/json" });
+      }
+      added++;
+    }
+  });
+  return added;
+}
+
 export async function storageEstimate(): Promise<{ usedMB: number; quotaMB: number } | null> {
   try {
     const est = await navigator.storage?.estimate?.();
